@@ -17,3 +17,4 @@ dialog{color:var(--white);background:var(--bg);border:1px solid rgba(217,217,210
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 @media(prefers-reduced-motion:no-preference){main>.section,main>.service-menu,main>.booking-layout{animation:soft-in .35s ease both}@keyframes soft-in{from{opacity:.7;transform:translateY(8px)}to{opacity:1;transform:none}}}
 
+.hero-topline .hero-concept{background:rgba(17,17,17,.88)}
