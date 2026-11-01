@@ -88,3 +88,22 @@ if (form) {
   // Clear personal details if the browser restores this page from its back/forward cache.
   window.addEventListener('pageshow', event => { if (event.persisted) { form.reset(); updateSummary(); } });
 }
+
+
+// Replay on each viewport entry; content stays readable without animation support.
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) entry.target.classList.toggle('is-revealed', entry.isIntersecting);
+  }, { threshold: 0 });
+  document.querySelectorAll([
+    '.hero h1', '.hero-description', '.hero-actions', '.page-heading', '.price-notice',
+    '.section-heading', '.about-grid > h2', '.about-copy > p', '.studio-facts > div',
+    '.team-card', '.service-card', '.approach-layout > h2', '.approach-list > div',
+    '.map-placeholder', '.contact-details', '.review-card', '.reviews-disclaimer',
+    '.booking-notice', '#booking-form .form-heading', '#booking-form .field',
+    '#booking-form .form-submit', '.booking-summary', '.closing > .container'
+  ].join(',')).forEach(element => {
+    element.classList.add('scroll-reveal');
+    revealObserver.observe(element);
+  });
+}

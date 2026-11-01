@@ -15,8 +15,13 @@ dialog{color:var(--white);background:var(--bg);border:1px solid rgba(217,217,210
 .hero-concept{font-size:14px;letter-spacing:.035em;color:var(--muted);border-left:2px solid var(--accent);padding-left:12px}
 @media(max-width:760px){.hero-topline{display:block;position:relative;padding:16px 0;background:var(--bg)}.hero-topline:before{content:'';position:absolute;inset:0 -20px;background:var(--bg);z-index:-1}.hero-topline .eyebrow{max-width:none;font-size:14px}.hero-concept{display:block;margin-top:10px;font-size:14px;line-height:1.6;letter-spacing:0}.hero-photo{top:170px;height:210px}.hero:after{inset:170px 0 auto;height:240px;background:linear-gradient(180deg,rgba(17,17,17,.15),transparent 30%,var(--bg) 100%)}.hero-copy{padding-top:198px}.hero-mini-brand{font-size:14px}.hero-actions .button{padding-inline:10px}.hero-copy>.concept-label{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
-@media(prefers-reduced-motion:no-preference){main>.section,main>.service-menu,main>.booking-layout{animation:soft-in .35s ease both}@keyframes soft-in{from{opacity:.7;transform:translateY(8px)}to{opacity:1;transform:none}}}
+@media(prefers-reduced-motion:no-preference){.scroll-reveal.is-revealed{animation:content-enter .6s cubic-bezier(.22,1,.36,1) both}.scroll-reveal:focus-within{animation:none!important}@keyframes content-enter{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}}
 
 .hero-topline .hero-concept{background:rgba(17,17,17,.88)}
 
 @media(hover:none),(pointer:coarse),(max-width:760px){.service-image img{filter:grayscale(0)}}
+
+main{background-image:linear-gradient(rgba(217,217,210,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(217,217,210,.025) 1px,transparent 1px);background-size:80px 80px}
+.team-section,.closing{background-image:repeating-linear-gradient(135deg,transparent 0 15px,rgba(217,217,210,.025) 15px 16px)}
+.reviews-section{border-top:1px solid var(--line)}.reviews-disclaimer{max-width:700px;margin-bottom:28px}.reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.review-card{margin:0;padding:30px;background:var(--surface);border:1px solid var(--line);border-radius:2px;display:flex;flex-direction:column}.review-card>.eyebrow{font-size:14px;color:var(--muted);letter-spacing:.08em;margin-bottom:24px}.review-card blockquote{margin:0;flex:1}.review-card blockquote p{font-size:17px;line-height:1.8;color:var(--white)}.review-card figcaption{display:flex;flex-direction:column;gap:4px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}.review-card figcaption strong{font-size:16px}.review-card figcaption span{font-size:14px;color:var(--muted)}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}.review-card{padding:26px}.review-card blockquote p{font-size:16px}}
