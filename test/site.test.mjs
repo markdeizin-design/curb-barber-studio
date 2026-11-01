@@ -1,0 +1,36 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile, access } from 'node:fs/promises';
+import { services, validateBooking, todayInDubai } from '../dist/data.js';
+
+const valid = { name: 'Demo Visitor', phone: '+971 (50) 123-4567', service: 'skin-fade', barber: 'Amir', date: '2026-11-02' };
+test('all eight services have the exact consistent concept prices and durations', () => {
+  assert.deepEqual(services.map(s=>[s.price,s.duration]), [[120,40],[140,45],[70,25],[90,30],[180,65],[80,25],[50,20],[100,30]]);
+  assert.equal(new Set(services.map(s=>s.id)).size,8);
+});
+test('valid international phone and optional date work; invalid required fields and past dates fail', () => {
+  assert.deepEqual(validateBooking(valid,'2026-11-01'),{});
+  assert.deepEqual(validateBooking({...valid,date:''},'2026-11-01'),{});
+  assert.deepEqual(Object.keys(validateBooking({name:' ',phone:'abc',service:'fake',barber:'Fake',date:'2026-10-31'},'2026-11-01')),['name','phone','service','barber','date']);
+  assert.ok(validateBooking({...valid,date:'2026-02-30'},'2026-01-01').date);
+  assert.ok(validateBooking({...valid,phone:'+1234567890123456'},'2026-11-01').phone);
+  assert.equal(todayInDubai(new Date('2026-11-01T21:00:00Z')), '2026-11-02');
+});
+test('all static routes, service images, fonts and concept notices are shipped', async () => {
+  for (const path of ['index.html','services/index.html','booking/index.html']) {
+    const html=await readFile(`dist/${path}`,'utf8');
+    assert.ok(html.includes('FICTIONAL BUSINESS'));
+    assert.ok(html.includes('No real appointments are accepted.'));
+    assert.ok(html.includes('href="/#about"') && html.includes('href="/#location"'));
+    assert.ok(!html.includes('tel:') && !html.includes('wa.me'));
+  }
+  for (const service of services) await access(`dist/assets/services/${service.image}`);
+  for (const font of ['BebasNeue-Regular.ttf','Manrope-Variable.ttf']) await access(`dist/assets/fonts/${font}`);
+});
+test('booking never sends or stores personal details', async () => {
+  const js=await readFile('dist/app.js','utf8');
+  assert.ok(js.includes('event.preventDefault()'));
+  assert.ok(js.includes('window.location.assign(whatsappUrl)'));
+  assert.ok(!/fetch\(|XMLHttpRequest|localStorage|sessionStorage|sendBeacon|FormData|wa\.me/.test(js));
+  assert.ok(js.includes('form.reset()'));
+});

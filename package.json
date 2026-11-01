@@ -1,0 +1,11 @@
+{
+  "name": "curb-barber-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/site.test.mjs",
+    "dev": "node serve.mjs"
+  }
+}
