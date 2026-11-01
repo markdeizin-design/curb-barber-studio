@@ -15,7 +15,7 @@ dialog{color:var(--white);background:var(--bg);border:1px solid rgba(217,217,210
 .hero-concept{font-size:14px;letter-spacing:.035em;color:var(--muted);border-left:2px solid var(--accent);padding-left:12px}
 @media(max-width:760px){.hero-topline{display:block;position:relative;padding:16px 0;background:var(--bg)}.hero-topline:before{content:'';position:absolute;inset:0 -20px;background:var(--bg);z-index:-1}.hero-topline .eyebrow{max-width:none;font-size:14px}.hero-concept{display:block;margin-top:10px;font-size:14px;line-height:1.6;letter-spacing:0}.hero-photo{top:170px;height:210px}.hero:after{inset:170px 0 auto;height:240px;background:linear-gradient(180deg,rgba(17,17,17,.15),transparent 30%,var(--bg) 100%)}.hero-copy{padding-top:198px}.hero-mini-brand{font-size:14px}.hero-actions .button{padding-inline:10px}.hero-copy>.concept-label{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
-@media(prefers-reduced-motion:no-preference){.scroll-reveal.is-revealed{animation:content-enter .6s cubic-bezier(.22,1,.36,1) both}.scroll-reveal:focus-within{animation:none!important}@keyframes content-enter{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}}
+@media(prefers-reduced-motion:no-preference){.scroll-reveal.is-revealed{animation:content-enter .6s cubic-bezier(.22,1,.36,1) both}.scroll-reveal:focus-within{animation:none!important}@keyframes content-enter{from{opacity:0}to{opacity:1}}}
 
 .hero-topline .hero-concept{background:rgba(17,17,17,.88)}
 
