@@ -2,6 +2,8 @@
 
 A complete responsive portfolio concept for a fictional men's barber studio in Al Quoz, Dubai, UAE. The business, team, address, phone numbers, prices and booking experience are illustrative. No real appointments are accepted.
 
+[Visit the live site](https://curb-barber-studio-al-quoz.markdeizin.chatgpt.site/) · [Service menu](https://curb-barber-studio-al-quoz.markdeizin.chatgpt.site/services) · [Demo booking](https://curb-barber-studio-al-quoz.markdeizin.chatgpt.site/booking)
+
 ## Run locally
 
 Requires Node.js 20 or later. No dependencies or installation step.

@@ -18,3 +18,14 @@ Local files are deliberate fixed downloads, cropped to 1200 × 900 pixels (4:3) 
 | `scalp-detox.jpg` | Scalp Detox — illustrative scalp cleansing and rinse at a basin | Gustavo Fring | [Pexels 7447128](https://www.pexels.com/photo/washing-hair-at-hairdresser-7447128/) | [Pexels License](https://www.pexels.com/license/) |
 
 The displayed statement “Stock photography used to illustrate services” avoids attributing the work or any endorsement to the fictional business.
+
+## Hero photograph and original logo
+
+`dist/assets/hero-tools.png`: original image generated specifically for this concept using OpenAI image generation on 1 November 2026. Overhead studio photograph of professional scissors and a black clipper on a graphite worktop. Not a stock service photograph or a representation of real CURB premises.
+
+`dist/assets/curb-mark.svg` and `curb-logo.svg`: original vector identity created for this fictional project. No reference-site branding was reused.
+
+## Locally hosted fonts
+
+- Bebas Neue Regular: [official Google Fonts source](https://github.com/google/fonts/tree/main/ofl/bebasneue), SIL Open Font License 1.1. License included at `dist/assets/fonts/BebasNeue-OFL.txt`.
+- Manrope Variable: [official Google Fonts source](https://github.com/google/fonts/tree/main/ofl/manrope), SIL Open Font License 1.1. License included at `dist/assets/fonts/Manrope-OFL.txt`.
