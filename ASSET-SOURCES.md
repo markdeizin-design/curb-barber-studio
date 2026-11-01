@@ -29,3 +29,5 @@ The displayed statement “Stock photography used to illustrate services” avoi
 
 - Bebas Neue Regular: [official Google Fonts source](https://github.com/google/fonts/tree/main/ofl/bebasneue), SIL Open Font License 1.1. License included at `dist/assets/fonts/BebasNeue-OFL.txt`.
 - Manrope Variable: [official Google Fonts source](https://github.com/google/fonts/tree/main/ofl/manrope), SIL Open Font License 1.1. License included at `dist/assets/fonts/Manrope-OFL.txt`.
+
+The original monochrome beard image (`beard-trim.jpg`, Pexels 5853391) was replaced with the genuine colour photo above. It was not artificially colourised.

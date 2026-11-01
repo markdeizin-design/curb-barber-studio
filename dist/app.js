@@ -24,7 +24,7 @@ document.addEventListener('keydown', event => {
     menuButton.focus();
   }
 });
-matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+matchMedia('(min-width: 1000px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 let lastScroll = window.scrollY;
 window.addEventListener('scroll', () => {
   const current = window.scrollY;
@@ -35,8 +35,8 @@ window.addEventListener('scroll', () => {
   lastScroll = current;
 }, { passive: true });
 header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
-document.querySelectorAll('a[href="/services"], a[href="/booking"]').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname.replace(/\/$/, '')) link.setAttribute('aria-current', 'page');
+document.querySelectorAll('.desktop-nav a, .mobile-nav a, footer nav a').forEach(link => {
+  if (new URL(link.href).pathname.replace(/\/$/, '').endsWith('/' + document.body.dataset.page)) link.setAttribute('aria-current', 'page');
 });
 
 const callDialog = document.querySelector('#call-dialog');
@@ -49,7 +49,7 @@ callDialog.addEventListener('click', event => {
 
 const form = document.querySelector('#booking-form');
 if (form) {
-  const fields = Object.fromEntries(['name', 'phone', 'service', 'barber', 'date'].map(id => [id, document.getElementById(id)]));
+  const fields = Object.fromEntries(['name', 'service', 'barber', 'date'].map(id => [id, document.getElementById(id)]));
   const requestedBarber = new URLSearchParams(window.location.search).get('barber');
   if (barbers.some(barber => barber.name === requestedBarber)) fields.barber.value = requestedBarber;
   const updateSummary = () => {
