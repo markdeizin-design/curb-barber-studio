@@ -1,4 +1,4 @@
-import { heroMotion } from './hero-motion.js';
+import { heroMotion } from './hero-motion.js?v=2';
 import { services, barbers, whatsappUrl, todayInDubai, validateBooking } from './data.js';
 
 const header = document.querySelector('.site-header');

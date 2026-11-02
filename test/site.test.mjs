@@ -53,6 +53,6 @@ test('nearby pointer motion stays subtle and keeps one connected cable', async (
       assert.ok(Number.isFinite(tool.x) && Number.isFinite(tool.y));
     }
     assert.ok(state.path.startsWith(`M${118+state.scissors.x} ${156+state.scissors.y} C`));
-    assert.ok(state.path.endsWith(`${524+state.clipper.x} ${268+state.clipper.y}`));
+    assert.ok(state.path.endsWith(`${550+state.clipper.x} ${268+state.clipper.y}`));
   }
 });
