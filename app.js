@@ -1,3 +1,4 @@
+import { heroMotion } from './hero-motion.js';
 import { services, barbers, whatsappUrl, todayInDubai, validateBooking } from './data.js';
 
 const header = document.querySelector('.site-header');
@@ -106,4 +107,42 @@ if ('IntersectionObserver' in window) {
     element.classList.add('scroll-reveal');
     revealObserver.observe(element);
   });
+}
+
+const hero = document.querySelector('.hero');
+const tools = document.querySelector('.hero-tools');
+if (hero && tools) {
+  const motion = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+  let frame = 0;
+  let pointer;
+  const renderTools = (state, scale) => {
+    for (const name of ['scissors', 'clipper']) {
+      const tool = tools.querySelector(`.hero-${name}`);
+      tool.style.setProperty('--move-x', `${state[name].x * scale}px`);
+      tool.style.setProperty('--move-y', `${state[name].y * scale}px`);
+      tool.style.setProperty('--move-angle', `${state[name].x * .18}deg`);
+    }
+    tools.querySelectorAll('path').forEach(path => path.setAttribute('d', state.path));
+  };
+  const resetTools = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    renderTools(heroMotion(), 1);
+  };
+  hero.addEventListener('pointermove', event => {
+    if (!motion.matches || event.pointerType !== 'mouse') return;
+    pointer = { x: event.clientX, y: event.clientY };
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      const rect = tools.getBoundingClientRect();
+      const scale = rect.width / 640;
+      renderTools(heroMotion((pointer.x - rect.left) / scale, (pointer.y - rect.top) / scale), scale);
+    });
+  }, { passive: true });
+  hero.addEventListener('pointerleave', resetTools);
+  motion.addEventListener('change', resetTools);
+  window.addEventListener('blur', resetTools);
+  window.addEventListener('resize', resetTools);
+  window.addEventListener('scroll', resetTools, { passive: true });
 }
