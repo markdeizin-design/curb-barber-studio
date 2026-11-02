@@ -33,3 +33,5 @@ The displayed statement “Stock photography used to illustrate services” avoi
 The original monochrome beard image (`beard-trim.jpg`, Pexels 5853391) was replaced with the genuine colour photo above. It was not artificially colourised.
 
 `dist/assets/hero-crossed-tools.webp`: AI-edited derivative of the original hero, 2 November 2026. Built-in OpenAI image editing removed the worktop and arranged the same clipper and scissors in an X, with true alpha transparency. Prompt: One black clipper and steel scissors crossed at their middles; clipper teeth upper left, scissors tips upper right; complete tools, realistic materials, transparent background, no text or other objects. WebP encoding preserves alpha.
+
+`dist/assets/hero-scissors.webp` and `hero-clipper.webp`: separate transparent AI-edited product cutouts derived from the original hero, 2 November 2026, made with the built-in OpenAI image tool. Prompts: isolate only the original steel scissors / black clipper; upright complete tool, preserve photographic materials, transparent alpha, no workbench, other objects or text. WebP preserves alpha. Connecting lines are original inline SVG, animated with CSS.
