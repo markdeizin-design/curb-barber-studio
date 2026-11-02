@@ -36,3 +36,23 @@ test('booking never sends or stores personal details', async () => {
   assert.ok(!html.includes('id="phone"') && !html.includes('type="tel"'));
   assert.ok(html.includes('/curb-barber-studio/app.js?v='));
 });
+
+test('nearby pointer motion stays subtle and keeps one connected cable', async () => {
+  const { heroMotion } = await import('../dist/hero-motion.js');
+  const rest = heroMotion();
+  assert.deepEqual(rest.scissors, { x: -0, y: -0 });
+  assert.deepEqual(rest.clipper, { x: -0, y: -0 });
+  assert.equal(heroMotion(10000,10000).path, rest.path);
+  const near = heroMotion(180,170);
+  assert.ok(near.scissors.x > 0);
+  assert.equal(near.clipper.x, -0);
+  for (let x=-200; x<=800; x+=50) for(let y=-200; y<=600; y+=50) {
+    const state=heroMotion(x,y);
+    for(const tool of [state.scissors,state.clipper]) {
+      assert.ok(Math.abs(tool.x)<=6.61 && Math.abs(tool.y)<=6.61);
+      assert.ok(Number.isFinite(tool.x) && Number.isFinite(tool.y));
+    }
+    assert.ok(state.path.startsWith(`M${118+state.scissors.x} ${156+state.scissors.y} C`));
+    assert.ok(state.path.endsWith(`${524+state.clipper.x} ${268+state.clipper.y}`));
+  }
+});
