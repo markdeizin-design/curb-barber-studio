@@ -31,3 +31,5 @@ The displayed statement “Stock photography used to illustrate services” avoi
 - Manrope Variable: [official Google Fonts source](https://github.com/google/fonts/tree/main/ofl/manrope), SIL Open Font License 1.1. License included at `dist/assets/fonts/Manrope-OFL.txt`.
 
 The original monochrome beard image (`beard-trim.jpg`, Pexels 5853391) was replaced with the genuine colour photo above. It was not artificially colourised.
+
+`dist/assets/hero-crossed-tools.webp`: AI-edited derivative of the original hero, 2 November 2026. Built-in OpenAI image editing removed the worktop and arranged the same clipper and scissors in an X, with true alpha transparency. Prompt: One black clipper and steel scissors crossed at their middles; clipper teeth upper left, scissors tips upper right; complete tools, realistic materials, transparent background, no text or other objects. WebP encoding preserves alpha.
