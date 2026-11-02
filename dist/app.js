@@ -1,4 +1,4 @@
-import { heroMotion } from './hero-motion.js?v=2';
+import { heroMotion } from './hero-motion.js?v=3';
 import { services, barbers, whatsappUrl, todayInDubai, validateBooking } from './data.js';
 
 const header = document.querySelector('.site-header');
@@ -120,9 +120,8 @@ if (hero && tools) {
       const tool = tools.querySelector(`.hero-${name}`);
       tool.style.setProperty('--move-x', `${state[name].x * scale}px`);
       tool.style.setProperty('--move-y', `${state[name].y * scale}px`);
-      tool.style.setProperty('--move-angle', `${state[name].x * .18}deg`);
+      tool.style.setProperty('--move-angle', `${state[name].x * .09}deg`);
     }
-    tools.querySelectorAll('path').forEach(path => path.setAttribute('d', state.path));
   };
   const resetTools = () => {
     cancelAnimationFrame(frame);
